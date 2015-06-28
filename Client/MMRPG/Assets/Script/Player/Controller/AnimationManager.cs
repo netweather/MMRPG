@@ -134,20 +134,20 @@ public class AnimationManager : MonoBehaviour {
 	
 	//Idle Method
 	public void Idle(){
-		animation.CrossFade(idle.animation.name);
-		animation[idle.animation.name].speed = idle.speedAnimation;
+		GetComponent<Animation>().CrossFade(idle.animation.name);
+		GetComponent<Animation>()[idle.animation.name].speed = idle.speedAnimation;
 	}
 	
 	//Move Method
 	public void Move(){
-		animation.Play(move.animation.name);
+		GetComponent<Animation>().Play(move.animation.name);
 		
 		if(move.speedTuning)  //Enable Speed Tuning
 		{
-			animation[move.animation.name].speed = (playerStatus.statusCal.movespd/3f)/move.speedAnimation;	
+			GetComponent<Animation>()[move.animation.name].speed = (playerStatus.statusCal.movespd/3f)/move.speedAnimation;	
 		}else
 		{
-			animation[move.animation.name].speed = move.speedAnimation;
+			GetComponent<Animation>()[move.animation.name].speed = move.speedAnimation;
 		}
 		
 		
@@ -156,18 +156,18 @@ public class AnimationManager : MonoBehaviour {
 	//Attack Method
 	public void Attack()
 	{	
-		animation.Play(normalAttack[heroController.typeAttack].animation.name);
+		GetComponent<Animation>().Play(normalAttack[heroController.typeAttack].animation.name);
 		
 		if(normalAttack[heroController.typeAttack].speedTuning)  //Enable Speed Tuning
 		{
-			animation[normalAttack[heroController.typeAttack].animation.name].speed = (playerStatus.statusCal.atkSpd/100f)/normalAttack[heroController.typeAttack].speedAnimation;	
+			GetComponent<Animation>()[normalAttack[heroController.typeAttack].animation.name].speed = (playerStatus.statusCal.atkSpd/100f)/normalAttack[heroController.typeAttack].speedAnimation;	
 		}else
 		{
-			animation[normalAttack[heroController.typeAttack].animation.name].speed = normalAttack[heroController.typeAttack].speedAnimation;
+			GetComponent<Animation>()[normalAttack[heroController.typeAttack].animation.name].speed = normalAttack[heroController.typeAttack].speedAnimation;
 		}
 			
 		//Calculate Attack
-		if(animation[normalAttack[heroController.typeAttack].animation.name].normalizedTime > normalAttack[heroController.typeAttack].attackTimer && !checkAttack)
+		if(GetComponent<Animation>()[normalAttack[heroController.typeAttack].animation.name].normalizedTime > normalAttack[heroController.typeAttack].attackTimer && !checkAttack)
 		{
 			
 			//Attack Damage
@@ -181,7 +181,7 @@ public class AnimationManager : MonoBehaviour {
 			checkAttack = true;
 		}
 			
-		if(animation[normalAttack[heroController.typeAttack].animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[normalAttack[heroController.typeAttack].animation.name].normalizedTime > 0.9f)
 		{
 			heroController.ctrlAnimState = HeroController.ControlAnimationState.WaitAttack;
 			checkAttack = false;
@@ -191,18 +191,18 @@ public class AnimationManager : MonoBehaviour {
 	//Critical Method
 	public void CriticalAttack()
 	{	
-		animation.Play(criticalAttack[heroController.typeAttack].animation.name);
+		GetComponent<Animation>().Play(criticalAttack[heroController.typeAttack].animation.name);
 		
 		if(criticalAttack[heroController.typeAttack].speedTuning)  //Enable Speed Tuning
 		{
-			animation[criticalAttack[heroController.typeAttack].animation.name].speed = (playerStatus.statusCal.atkSpd/100f)/criticalAttack[heroController.typeAttack].speedAnimation;	
+			GetComponent<Animation>()[criticalAttack[heroController.typeAttack].animation.name].speed = (playerStatus.statusCal.atkSpd/100f)/criticalAttack[heroController.typeAttack].speedAnimation;	
 		}else
 		{
-			animation[criticalAttack[heroController.typeAttack].animation.name].speed = criticalAttack[heroController.typeAttack].speedAnimation;
+			GetComponent<Animation>()[criticalAttack[heroController.typeAttack].animation.name].speed = criticalAttack[heroController.typeAttack].speedAnimation;
 		}
 			
 		//Calculate Attack
-		if(animation[criticalAttack[heroController.typeAttack].animation.name].normalizedTime > criticalAttack[heroController.typeAttack].attackTimer && !checkAttack)
+		if(GetComponent<Animation>()[criticalAttack[heroController.typeAttack].animation.name].normalizedTime > criticalAttack[heroController.typeAttack].attackTimer && !checkAttack)
 		{
 			
 			//Attack Damage
@@ -216,7 +216,7 @@ public class AnimationManager : MonoBehaviour {
 			checkAttack = true;
 		}
 			
-		if(animation[criticalAttack[heroController.typeAttack].animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[criticalAttack[heroController.typeAttack].animation.name].normalizedTime > 0.9f)
 		{
 			heroController.ctrlAnimState = HeroController.ControlAnimationState.WaitAttack;
 			checkAttack = false;
@@ -225,10 +225,10 @@ public class AnimationManager : MonoBehaviour {
 	
 	//Take attack method
 	public void TakeAttack(){
-		animation.CrossFade(takeAttack[heroController.typeTakeAttack].animation.name);
-		animation[takeAttack[heroController.typeTakeAttack].animation.name].speed = takeAttack[heroController.typeTakeAttack].speedAnimation;
+		GetComponent<Animation>().CrossFade(takeAttack[heroController.typeTakeAttack].animation.name);
+		GetComponent<Animation>()[takeAttack[heroController.typeTakeAttack].animation.name].speed = takeAttack[heroController.typeTakeAttack].speedAnimation;
 		
-		if(animation[takeAttack[heroController.typeTakeAttack].animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[takeAttack[heroController.typeTakeAttack].animation.name].normalizedTime > 0.9f)
 		{
 			if(heroController.target != null)
 			{
@@ -243,17 +243,17 @@ public class AnimationManager : MonoBehaviour {
 	//Cast method
 	public void Cast()
 	{
-		animation.CrossFade(cast.animation.name);
-		animation[cast.animation.name].speed = cast.speedAnimation;
+		GetComponent<Animation>().CrossFade(cast.animation.name);
+		GetComponent<Animation>()[cast.animation.name].speed = cast.speedAnimation;
 	}
 	
 	//Death method
 	public void Death()
 	{
-		animation.CrossFade(death.animation.name);
-		animation[death.animation.name].speed = death.speedAnimation;
+		GetComponent<Animation>().CrossFade(death.animation.name);
+		GetComponent<Animation>()[death.animation.name].speed = death.speedAnimation;
 		
-		if(animation[death.animation.name].normalizedTime > 0.9f && !oneCheckDeadReset)
+		if(GetComponent<Animation>()[death.animation.name].normalizedTime > 0.9f && !oneCheckDeadReset)
 		{
 			heroController.DeadReset();
 			oneCheckDeadReset = true;
@@ -263,24 +263,24 @@ public class AnimationManager : MonoBehaviour {
 	//Skill Method
 	public void ActiveSkill()
 	{
-		animation.Play(skillSetup.animationSkill.name);
+		GetComponent<Animation>().Play(skillSetup.animationSkill.name);
 		
 		if(skillSetup.speedTuning)  //Enable Speed Tuning
 		{
-			animation[skillSetup.animationSkill.name].speed = (playerStatus.statusCal.atkSpd/100f)/skillSetup.speedAnimation;	
+			GetComponent<Animation>()[skillSetup.animationSkill.name].speed = (playerStatus.statusCal.atkSpd/100f)/skillSetup.speedAnimation;	
 		}else
 		{
-			animation[skillSetup.animationSkill.name].speed = skillSetup.speedAnimation;
+			GetComponent<Animation>()[skillSetup.animationSkill.name].speed = skillSetup.speedAnimation;
 		}
 			
 		//Calculate Attack
-		if(animation[skillSetup.animationSkill.name].normalizedTime > skillSetup.activeTimer && !checkAttack)
+		if(GetComponent<Animation>()[skillSetup.animationSkill.name].normalizedTime > skillSetup.activeTimer && !checkAttack)
 		{	
 			playerSkill.ActiveSkill(skillSetup.skillType,skillSetup.skillIndex);
 			checkAttack = true;
 		}
 			
-		if(animation[skillSetup.animationSkill.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[skillSetup.animationSkill.name].normalizedTime > 0.9f)
 		{
 			heroController.ctrlAnimState = HeroController.ControlAnimationState.WaitAttack;
 			checkAttack = false;

@@ -1007,7 +1007,7 @@ public class GUI_Menu : MonoBehaviour {
 	/// Check item on the floor before pickup
 	/// </summary>
 	private void RayPickupItem(){
-		ray = Camera.mainCamera.ScreenPointToRay(Input.mousePosition);
+		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if(Physics.Raycast(ray, out hit, 20)){
 			
 			if(hit.collider.tag == "Npc_Shop"){

@@ -27,10 +27,10 @@ public class LoadGameButton : MonoBehaviour {
 		
 		if(checkData == "True")
 		{
-			this.guiTexture.texture = buttonNormal;
+			this.GetComponent<GUITexture>().texture = buttonNormal;
 		}else
 		{
-			this.guiTexture.texture = buttonDisable;
+			this.GetComponent<GUITexture>().texture = buttonDisable;
 		}
 	}
 	
@@ -39,7 +39,7 @@ public class LoadGameButton : MonoBehaviour {
 		//Load scene
 		if(checkData == "True")
 		{
-			this.guiTexture.texture = buttonNormal;
+			this.GetComponent<GUITexture>().texture = buttonNormal;
 			Invoke("LoadScene",0.1f);
 		}
 	}
@@ -51,7 +51,7 @@ public class LoadGameButton : MonoBehaviour {
 			if(buttonSfx != null)
 			AudioSource.PlayClipAtPoint(buttonSfx,transform.position);
 		
-			this.guiTexture.texture = buttonDown;
+			this.GetComponent<GUITexture>().texture = buttonDown;
 			//enable load data
 			loadData = true;
 		}

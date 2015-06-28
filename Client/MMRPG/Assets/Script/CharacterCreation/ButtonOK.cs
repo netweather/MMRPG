@@ -19,7 +19,7 @@ public class ButtonOK : MonoBehaviour {
 	void OnMouseUp()
 	{
 		//change texture to "normal"
-		this.gameObject.guiTexture.texture = buttonOkNormal;
+		this.gameObject.GetComponent<GUITexture>().texture = buttonOkNormal;
 		
 		//Save select character and name
 		PlayerPrefs.SetString("pName",enterNameScript.defaultName);
@@ -34,7 +34,7 @@ public class ButtonOK : MonoBehaviour {
 	void OnMouseDown()
 	{
 		//change texture to "down"
-		this.gameObject.guiTexture.texture = buttonOkDown;
+		this.gameObject.GetComponent<GUITexture>().texture = buttonOkDown;
 		
 		//Play sfx
 		if(sfxButton != null)

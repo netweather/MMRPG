@@ -12,6 +12,6 @@ public class LookAtCamera : MonoBehaviour {
 	
 	void Update () {
 		
-		transform.LookAt(Camera.mainCamera.transform.position);
+		transform.LookAt(Camera.main.transform.position);
 	}
 }

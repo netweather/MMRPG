@@ -26,7 +26,7 @@ public class SoundManager : MonoBehaviour {
 	}
 	
 	public void PlayingSound(string _soundName){
-		AudioSource.PlayClipAtPoint(sound_List[FindSound(_soundName)].audioClip, Camera.mainCamera.transform.position);
+		AudioSource.PlayClipAtPoint(sound_List[FindSound(_soundName)].audioClip, Camera.main.transform.position);
 	}
 	
 	private int FindSound(string _soundName){

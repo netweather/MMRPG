@@ -133,7 +133,7 @@ public class HeroController : MonoBehaviour {
 	void CancelSkill()
 	{
 		//Ray to enemy
-		Ray r = Camera.mainCamera.ScreenPointToRay(Input.mousePosition);
+		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit h;
 
 		if(Input.GetMouseButtonDown(1) && useSkill && ctrlAnimState != ControlAnimationState.Death)
@@ -281,7 +281,7 @@ public class HeroController : MonoBehaviour {
 	void TargetLock()
 	{
 		//Ray to enemy
-		Ray r = Camera.mainCamera.ScreenPointToRay(Input.mousePosition);
+		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit h;
 		
 		
@@ -552,7 +552,7 @@ public class HeroController : MonoBehaviour {
 				}
 			}
 			
-			Ray r = Camera.mainCamera.ScreenPointToRay(Input.mousePosition);
+			Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit h;
 			if(Physics.Raycast(r, out h ,100, 1 << layerActiveEnemy | 1 << layerActiveGround | 1 << layerActiveItem | 1 << layerActiveNpc)){
 				if(h.collider.tag == "Ground"){
@@ -836,7 +836,7 @@ public class HeroController : MonoBehaviour {
 	{
 		int index = 0;
 		while(index < modelMesh.Count){
-			modelMesh[index].renderer.material.color = defaultColor[index];
+			modelMesh[index].GetComponent<Renderer>().material.color = defaultColor[index];
 			index++;
 		}
 		
@@ -847,7 +847,7 @@ public class HeroController : MonoBehaviour {
 	{
 		int index = 0;
 		while(index < modelMesh.Count){
-			defaultColor[index] = modelMesh[index].renderer.material.color;
+			defaultColor[index] = modelMesh[index].GetComponent<Renderer>().material.color;
 			index++;
 		}
 	}
@@ -857,14 +857,14 @@ public class HeroController : MonoBehaviour {
 		int index = 0;
 		Color[] colorDef = new Color[modelMesh.Count];
 		while(index < modelMesh.Count){
-			colorDef[index] = modelMesh[index].renderer.material.color;
-			modelMesh[index].renderer.material.color = colorTakeDamage;
+			colorDef[index] = modelMesh[index].GetComponent<Renderer>().material.color;
+			modelMesh[index].GetComponent<Renderer>().material.color = colorTakeDamage;
 			index++;
 		}
 		yield return new WaitForSeconds(time);
 		index = 0;
 		while(index < modelMesh.Count){
-			modelMesh[index].renderer.material.color = colorDef[index];
+			modelMesh[index].GetComponent<Renderer>().material.color = colorDef[index];
 			index++;
 		}
 		yield return 0;

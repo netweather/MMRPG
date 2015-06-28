@@ -35,28 +35,28 @@ public class MinimapSignSetup : MonoBehaviour {
 	{
 		if(signType == MinimapSignType.Player)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[0];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[0];	
 		}else if(signType == MinimapSignType.Enemy)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[1];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[1];	
 		}else if(signType == MinimapSignType.Boss)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[2];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[2];	
 		}else if(signType == MinimapSignType.Npc)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[3];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[3];	
 		}else if(signType == MinimapSignType.ShopWeapon)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[4];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[4];	
 		}else if(signType == MinimapSignType.ShopPotion)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[5];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[5];	
 		}else if(signType == MinimapSignType.SavePoint)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[6];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[6];	
 		}else if(signType == MinimapSignType.Quest)
 		{
-			this.gameObject.renderer.material = MinimapSign.Instance.minimapSignMat[7];	
+			this.gameObject.GetComponent<Renderer>().material = MinimapSign.Instance.minimapSignMat[7];	
 		}
 			
 	}

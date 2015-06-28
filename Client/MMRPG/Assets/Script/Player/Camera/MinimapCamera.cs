@@ -54,13 +54,13 @@ public class MinimapCamera : MonoBehaviour {
 	{
 		if(zoomLevel < zoomCurrent)
 		{
-			this.camera.orthographicSize += 3;
+			this.GetComponent<Camera>().orthographicSize += 3;
 			zoomCurrent = zoomLevel;
 		}else
 		
 		if(zoomLevel > zoomCurrent)
 		{
-			this.camera.orthographicSize -= 3;
+			this.GetComponent<Camera>().orthographicSize -= 3;
 			zoomCurrent = zoomLevel;
 		}
 	}

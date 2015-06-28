@@ -115,20 +115,20 @@ public class AnimationManagerEnemy : MonoBehaviour {
 	
 	//Idle method
 	public void Idle(){
-		animation.CrossFade(idle.animation.name);
-		animation[idle.animation.name].speed = idle.speedAnimation;
+		GetComponent<Animation>().CrossFade(idle.animation.name);
+		GetComponent<Animation>()[idle.animation.name].speed = idle.speedAnimation;
 	}
 	
 	//Move method
 	public void Move(){
-		animation.Play(move.animation.name);
+		GetComponent<Animation>().Play(move.animation.name);
 		
 		if(move.speedTuning)  //Enable Speed Tuning
 		{
-			animation[move.animation.name].speed = (enemyStatus.status.movespd/3f)/move.speedAnimation;	
+			GetComponent<Animation>()[move.animation.name].speed = (enemyStatus.status.movespd/3f)/move.speedAnimation;	
 		}else
 		{
-			animation[move.animation.name].speed = move.speedAnimation;
+			GetComponent<Animation>()[move.animation.name].speed = move.speedAnimation;
 		}
 		
 		
@@ -137,18 +137,18 @@ public class AnimationManagerEnemy : MonoBehaviour {
 	//Attack method
 	public void Attack()
 	{	
-		animation.Play(normalAttack[enemyController.typeAttack].animation.name);
+		GetComponent<Animation>().Play(normalAttack[enemyController.typeAttack].animation.name);
 		
 		if(normalAttack[enemyController.typeAttack].speedTuning)  //Enable Speed Tuning
 		{
-			animation[normalAttack[enemyController.typeAttack].animation.name].speed = (enemyStatus.status.atkSpd/100f)/normalAttack[enemyController.typeAttack].speedAnimation;	
+			GetComponent<Animation>()[normalAttack[enemyController.typeAttack].animation.name].speed = (enemyStatus.status.atkSpd/100f)/normalAttack[enemyController.typeAttack].speedAnimation;	
 		}else
 		{
-			animation[normalAttack[enemyController.typeAttack].animation.name].speed = normalAttack[enemyController.typeAttack].speedAnimation;
+			GetComponent<Animation>()[normalAttack[enemyController.typeAttack].animation.name].speed = normalAttack[enemyController.typeAttack].speedAnimation;
 		}
 			
 		//Calculate Attack
-		if(animation[normalAttack[enemyController.typeAttack].animation.name].normalizedTime > normalAttack[enemyController.typeAttack].attackTimer && !checkAttack)
+		if(GetComponent<Animation>()[normalAttack[enemyController.typeAttack].animation.name].normalizedTime > normalAttack[enemyController.typeAttack].attackTimer && !checkAttack)
 		{
 			//Attack Damage
 			HeroController enemy;
@@ -158,7 +158,7 @@ public class AnimationManagerEnemy : MonoBehaviour {
 			checkAttack = true;
 		}
 			
-		if(animation[normalAttack[enemyController.typeAttack].animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[normalAttack[enemyController.typeAttack].animation.name].normalizedTime > 0.9f)
 		{
 			enemyController.ctrlAnimState = EnemyController.ControlAnimationState.WaitAttack;
 			checkAttack = false;
@@ -168,18 +168,18 @@ public class AnimationManagerEnemy : MonoBehaviour {
 	//Critical method
 	public void CriticalAttack()
 	{	
-		animation.Play(criticalAttack[enemyController.typeAttack].animation.name);
+		GetComponent<Animation>().Play(criticalAttack[enemyController.typeAttack].animation.name);
 		
 		if(criticalAttack[enemyController.typeAttack].speedTuning)  //Enable Speed Tuning
 		{
-			animation[criticalAttack[enemyController.typeAttack].animation.name].speed = (enemyStatus.status.atkSpd/100f)/criticalAttack[enemyController.typeAttack].speedAnimation;	
+			GetComponent<Animation>()[criticalAttack[enemyController.typeAttack].animation.name].speed = (enemyStatus.status.atkSpd/100f)/criticalAttack[enemyController.typeAttack].speedAnimation;	
 		}else
 		{
-			animation[criticalAttack[enemyController.typeAttack].animation.name].speed = criticalAttack[enemyController.typeAttack].speedAnimation;
+			GetComponent<Animation>()[criticalAttack[enemyController.typeAttack].animation.name].speed = criticalAttack[enemyController.typeAttack].speedAnimation;
 		}
 			
 		//Calculate Attack
-		if(animation[criticalAttack[enemyController.typeAttack].animation.name].normalizedTime > criticalAttack[enemyController.typeAttack].attackTimer && !checkAttack)
+		if(GetComponent<Animation>()[criticalAttack[enemyController.typeAttack].animation.name].normalizedTime > criticalAttack[enemyController.typeAttack].attackTimer && !checkAttack)
 		{
 			//Attack Damage
 			HeroController enemy;
@@ -191,7 +191,7 @@ public class AnimationManagerEnemy : MonoBehaviour {
 			checkAttack = true;
 		}
 			
-		if(animation[criticalAttack[enemyController.typeAttack].animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[criticalAttack[enemyController.typeAttack].animation.name].normalizedTime > 0.9f)
 		{
 			enemyController.ctrlAnimState = EnemyController.ControlAnimationState.WaitAttack;
 			checkAttack = false;
@@ -200,10 +200,10 @@ public class AnimationManagerEnemy : MonoBehaviour {
 	
 	//Take attack method
 	public void TakeAttack(){
-		animation.CrossFade(takeAttack[enemyController.typeTakeAttack].animation.name);
-		animation[takeAttack[enemyController.typeTakeAttack].animation.name].speed = takeAttack[enemyController.typeTakeAttack].speedAnimation;
+		GetComponent<Animation>().CrossFade(takeAttack[enemyController.typeTakeAttack].animation.name);
+		GetComponent<Animation>()[takeAttack[enemyController.typeTakeAttack].animation.name].speed = takeAttack[enemyController.typeTakeAttack].speedAnimation;
 		
-		if(animation[takeAttack[enemyController.typeTakeAttack].animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[takeAttack[enemyController.typeTakeAttack].animation.name].normalizedTime > 0.9f)
 		{
 			enemyController.ctrlAnimState = EnemyController.ControlAnimationState.WaitAttack;
 		}
@@ -212,10 +212,10 @@ public class AnimationManagerEnemy : MonoBehaviour {
 	//Death method	
 	public void Death()
 	{
-		animation.CrossFade(death.animation.name);
-		animation[death.animation.name].speed = death.speedAnimation;
+		GetComponent<Animation>().CrossFade(death.animation.name);
+		GetComponent<Animation>()[death.animation.name].speed = death.speedAnimation;
 		
-		if(animation[death.animation.name].normalizedTime > 0.9f)
+		if(GetComponent<Animation>()[death.animation.name].normalizedTime > 0.9f)
 		{
 			if(enemyController.deadTransperent)
 			{

@@ -522,7 +522,7 @@ public class EnemyController : MonoBehaviour {
 	{
 		int index = 0;
 		while(index < modelMesh.Count){
-			defaultColor[index] = modelMesh[index].renderer.material.color;
+			defaultColor[index] = modelMesh[index].GetComponent<Renderer>().material.color;
 			index++;
 		}
 	}
@@ -531,7 +531,7 @@ public class EnemyController : MonoBehaviour {
 	{
 		int index = 0;
 		while(index < modelMesh.Count){
-			modelMesh[index].renderer.material.color = defaultColor[index];
+			modelMesh[index].GetComponent<Renderer>().material.color = defaultColor[index];
 			index++;
 		}
 		
@@ -544,14 +544,14 @@ public class EnemyController : MonoBehaviour {
 		int index = 0;
 		Color[] colorDef = new Color[modelMesh.Count];
 		while(index < modelMesh.Count){
-			colorDef[index] = modelMesh[index].renderer.material.color;
-			modelMesh[index].renderer.material.color = colorTakeDamage;
+			colorDef[index] = modelMesh[index].GetComponent<Renderer>().material.color;
+			modelMesh[index].GetComponent<Renderer>().material.color = colorTakeDamage;
 			index++;
 		}
 		yield return new WaitForSeconds(time);
 		index = 0;
 		while(index < modelMesh.Count){
-			modelMesh[index].renderer.material.color = colorDef[index];
+			modelMesh[index].GetComponent<Renderer>().material.color = colorDef[index];
 			index++;
 		}
 		yield return 0;
@@ -578,7 +578,7 @@ public class EnemyController : MonoBehaviour {
 		
 		while(index < modelMesh.Count)
 		{
-			modelMesh[index].renderer.material.shader = alphaShader; 
+			modelMesh[index].GetComponent<Renderer>().material.shader = alphaShader; 
 			index++;	
 		}
 		
@@ -592,11 +592,11 @@ public class EnemyController : MonoBehaviour {
 		Color[] colorDef = new Color[modelMesh.Count];
 		while(index < modelMesh.Count){
 			
-			colorDef[index] = modelMesh[index].renderer.material.color;
-			Color alphaColor = new Color(modelMesh[index].renderer.material.color.r,modelMesh[index].renderer.material.color.g,modelMesh[index].renderer.material.color.b,fadeValue);
-			modelMesh[index].gameObject.renderer.material.color = alphaColor;
+			colorDef[index] = modelMesh[index].GetComponent<Renderer>().material.color;
+			Color alphaColor = new Color(modelMesh[index].GetComponent<Renderer>().material.color.r,modelMesh[index].GetComponent<Renderer>().material.color.g,modelMesh[index].GetComponent<Renderer>().material.color.b,fadeValue);
+			modelMesh[index].gameObject.GetComponent<Renderer>().material.color = alphaColor;
 			
-			if(modelMesh[index].gameObject.renderer.material.color.a > 0)
+			if(modelMesh[index].gameObject.GetComponent<Renderer>().material.color.a > 0)
 			{
 				if(fadeValue > 0)
 					fadeValue -= Time.deltaTime * speedFade;

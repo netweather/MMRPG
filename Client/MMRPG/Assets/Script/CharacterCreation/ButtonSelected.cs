@@ -18,7 +18,7 @@ public class ButtonSelected : MonoBehaviour {
 	void OnMouseUp()
 	{
 		//change texture to "normal"
-		this.gameObject.guiTexture.texture = buttonOkNormal;
+		this.gameObject.GetComponent<GUITexture>().texture = buttonOkNormal;
 		
 		//if button name = Next when click this button, Choose next character
 		if(buttonName == "Next")
@@ -53,7 +53,7 @@ public class ButtonSelected : MonoBehaviour {
 	void OnMouseDown()
 	{
 		//change texture to "down"
-		this.gameObject.guiTexture.texture = buttonOkDown;
+		this.gameObject.GetComponent<GUITexture>().texture = buttonOkDown;
 		//Play sfx
 		AudioSource.PlayClipAtPoint(sfxButton,transform.position);
 		

@@ -38,7 +38,7 @@ public class ControlTitleScene : MonoBehaviour {
 			if(alpha > 0)
 			{
 				alpha -= Time.deltaTime * 0.2f;
-    			whiteScreen.guiTexture.color = new Color(.5f,.5f,.5f, alpha);
+    			whiteScreen.GetComponent<GUITexture>().color = new Color(.5f,.5f,.5f, alpha);
 			}else
 			{
 				bgm.Play();	
@@ -58,7 +58,7 @@ public class ControlTitleScene : MonoBehaviour {
 			if(alpha < 0.5f)
 			{
 				alpha += Time.deltaTime * 0.5f;
-    			titleText.guiTexture.color = new Color(.5f,.5f,.5f, alpha);
+    			titleText.GetComponent<GUITexture>().color = new Color(.5f,.5f,.5f, alpha);
 			}else
 			{
 				titlePattern = 2;

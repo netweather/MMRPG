@@ -26,7 +26,7 @@ public class Item_Obj : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision c)
 	{
-		this.rigidbody.isKinematic = true;
+		this.GetComponent<Rigidbody>().isKinematic = true;
 	}
 	
 	public void SetItem(){
@@ -35,7 +35,7 @@ public class Item_Obj : MonoBehaviour {
 		if(item != null){
 			gold = item.gold;
 			euipmentType = item.equipment_Type;
-			item_img_obj.renderer.material.mainTexture = item.item_Img;
+			item_img_obj.GetComponent<Renderer>().material.mainTexture = item.item_Img;
 			item_name = item.item_Name;
 			
 		}
