@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{9F2DCFC4-FE10-50F7-B511-3F3F739DD57E}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_1_1;UNITY_5_1;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PHYSICS_PHYSX3;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_LICENSE;ENABLE_AUDIOMIXER_SUSPEND;ENABLE_EDITOR_METRICS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\MaterialChange.cs" />
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\characterButtonGirl.cs" />
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\characterButtonGirlChibi.cs" />
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\characterButtonGirlCos.cs" />
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\characterButtonWarrior.cs" />
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\characterButtonWarriorChibi.cs" />
+     <Compile Include="Assets\Blade_NPC_SpecialPack\scripts\characterButtonWarriorCos.cs" />
+     <Compile Include="Assets\Script\CharacterCreation\ButtonOK.cs" />
+     <Compile Include="Assets\Script\CharacterCreation\ButtonSelected.cs" />
+     <Compile Include="Assets\Script\CharacterCreation\Entername.cs" />
+     <Compile Include="Assets\Script\CharacterCreation\SelectCharacter.cs" />
+     <Compile Include="Assets\Script\Enemy\AnimationManagerEnemy.cs" />
+     <Compile Include="Assets\Script\Enemy\DetectArea.cs" />
+     <Compile Include="Assets\Script\Enemy\DropItem.cs" />
+     <Compile Include="Assets\Script\Enemy\EnemyController.cs" />
+     <Compile Include="Assets\Script\Enemy\EnemyStatus.cs" />
+     <Compile Include="Assets\Script\Enemy\Monster_Data.cs" />
+     <Compile Include="Assets\Script\GUI\BottomBar.cs" />
+     <Compile Include="Assets\Script\GUI\CommandMenu.cs" />
+     <Compile Include="Assets\Script\GUI\DeadWindow.cs" />
+     <Compile Include="Assets\Script\GUI\EnemyHP.cs" />
+     <Compile Include="Assets\Script\GUI\HeroStatusBar.cs" />
+     <Compile Include="Assets\Script\GUI\LogText.cs" />
+     <Compile Include="Assets\Script\GUI\MessageBox.cs" />
+     <Compile Include="Assets\Script\GUI\Minimap.cs" />
+     <Compile Include="Assets\Script\GUI\MinimapSign.cs" />
+     <Compile Include="Assets\Script\GUI\QuestWindow.cs" />
+     <Compile Include="Assets\Script\GUI\SaveWindow.cs" />
+     <Compile Include="Assets\Script\Menu\GUI_Calculate.cs" />
+     <Compile Include="Assets\Script\Menu\GUI_Menu.cs" />
+     <Compile Include="Assets\Script\Menu\Item_Data.cs" />
+     <Compile Include="Assets\Script\Menu\Item_Obj.cs" />
+     <Compile Include="Assets\Script\Menu\LookAtCamera.cs" />
+     <Compile Include="Assets\Script\Menu\Quest_Data.cs" />
+     <Compile Include="Assets\Script\Misc\DisableFaceCam.cs" />
+     <Compile Include="Assets\Script\Misc\GameSetting.cs" />
+     <Compile Include="Assets\Script\Misc\MinimapSignSetup.cs" />
+     <Compile Include="Assets\Script\Misc\SoundManager.cs" />
+     <Compile Include="Assets\Script\Misc\Spawner.cs" />
+     <Compile Include="Assets\Script\Misc\TextDamage.cs" />
+     <Compile Include="Assets\Script\Misc\TextFilter.cs" />
+     <Compile Include="Assets\Script\Npc\NpcSetup.cs" />
+     <Compile Include="Assets\Script\Npc\ShopItemlist.cs" />
+     <Compile Include="Assets\Script\Player\Camera\MinimapCamera.cs" />
+     <Compile Include="Assets\Script\Player\Camera\MouseOrbit.cs" />
+     <Compile Include="Assets\Script\Player\Controller\AnimationManager.cs" />
+     <Compile Include="Assets\Script\Player\Controller\AreaSkillCursor.cs" />
+     <Compile Include="Assets\Script\Player\Controller\HeroController.cs" />
+     <Compile Include="Assets\Script\Player\Controller\PlayerSkill.cs" />
+     <Compile Include="Assets\Script\Player\Controller\PlayerStatus.cs" />
+     <Compile Include="Assets\Script\Player\Controller\SkillArea.cs" />
+     <Compile Include="Assets\Script\Player\Controller\SpawnPointHero.cs" />
+     <Compile Include="Assets\Script\SaveData\CharacterData.cs" />
+     <Compile Include="Assets\Script\Title\AlphaText.cs" />
+     <Compile Include="Assets\Script\Title\ControlTitleScene.cs" />
+     <Compile Include="Assets\Script\Title\LoadGameButton.cs" />
+     <Compile Include="Assets\Script\Title\NewGameButton.cs" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

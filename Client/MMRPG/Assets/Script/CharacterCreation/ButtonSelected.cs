@@ -1,28 +1,25 @@
-/// <summary>
-/// Button selected.
-/// This script use to select a character(button next,button previous)
-/// </summary>
+/*==========================
+ * 按钮选择角色脚本
+ * 这个脚本使用(next and prev )按钮选择角色
+ * 2015年7月6日
+ * ===========================
+ */
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ButtonSelected : MonoBehaviour {
 	
-	public string buttonName; //button name
-	
-	public Texture2D buttonOkNormal; //Texture button normal
-	public Texture2D buttonOkDown; //Texture button down
-	public SelectCharacter selectCharacterScript;//script select character
-	public AudioClip sfxButton; //sound effect when click this button
-	
-	void OnMouseUp()
+	public string buttonName;                    //按钮名字
+	public SelectCharacter selectCharacterScript;//选择角色脚本
+    public AudioClip sfxButton;                  //点击该按钮时音响效果
+
+    public void ButSet()
 	{
-		//change texture to "normal"
-		this.gameObject.GetComponent<GUITexture>().texture = buttonOkNormal;
-		
-		//if button name = Next when click this button, Choose next character
-		if(buttonName == "Next")
+		if(buttonName == "Next")                 //如果按钮的名字=Next  当单击这个按钮时选择之前的角色
 		{
+            
 			selectCharacterScript.indexHero += 1;
 			
 			if(selectCharacterScript.indexHero >= selectCharacterScript.hero.Length)
@@ -31,10 +28,12 @@ public class ButtonSelected : MonoBehaviour {
 			}
 			
 			selectCharacterScript.UpdateHero(selectCharacterScript.indexHero);
+            
 			
 		}
 		
-		//if button name = Prev when click this button, Choose previous character
+		//如果按钮的名字=Prev  当单击这个按钮时选择之前的角色
+		
 		if(buttonName == "Prev")
 		{
 			selectCharacterScript.indexHero -= 1;	
@@ -45,18 +44,17 @@ public class ButtonSelected : MonoBehaviour {
 			}
 			
 			selectCharacterScript.UpdateHero(selectCharacterScript.indexHero);
+           
 		}
-		
-		
+
+        MouseDownAudio();                        //播放声音特效
 	}
 	
-	void OnMouseDown()
+   void MouseDownAudio()                          //定义播放声音特效
 	{
-		//change texture to "down"
-		this.gameObject.GetComponent<GUITexture>().texture = buttonOkDown;
-		//Play sfx
+
 		AudioSource.PlayClipAtPoint(sfxButton,transform.position);
-		
+	  //AudioSource.PlayClipAtPoint 在指定位置播放剪辑
 	}
 	
 

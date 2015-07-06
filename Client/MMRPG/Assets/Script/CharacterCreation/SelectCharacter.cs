@@ -1,30 +1,33 @@
-/// <summary>
-/// Select character.
-/// This script use to display selected character and hide other character
-/// </summary>
+/*=========================
+ * 选择角色脚本
+ * 
+ * 2015年7月6日
+ * ========================
+ */
+ 
 
 using UnityEngine;
 using System.Collections;
 
 public class SelectCharacter : MonoBehaviour {
 	
-	public GameObject[] hero;  //your hero
-	public GameObject buttonNext,buttonPrev; //button prev and button next
+	public GameObject[] hero;                    //你的英雄
+	public GameObject buttonNext,buttonPrev;     //上一个按钮和下一个按钮
 
 	[HideInInspector]
-	public int indexHero = 0;  //index select hero
+    public int indexHero = 0;                    //索引选择的英雄
 	
-	private GameObject[] heroInstance; //use to keep hero gameobject when Instantiate
+	private GameObject[] heroInstance;           //实例化英雄实例
 	
 	// Use this for initialization
 	void Start () {
-		
-		heroInstance = new GameObject[hero.Length]; //add array size equal hero size
-		indexHero = 0; //set default selected hero
-		SpawnHero(); //spawn hero to display current selected
-		
-		
-		//check if hero is less than 1 , button next and prev will disappear
+
+        heroInstance = new GameObject[hero.Length]; //添加尺寸数组大小相等的英雄
+        indexHero = 0;                           //设置默认选中的英雄
+		SpawnHero();                             //显示被选英雄函数
+
+
+        //检查英雄是否小于1 , 按钮下和上将会消失
 		if(hero.Length <= 1)
 		{
 			buttonNext.SetActive(false);
@@ -33,25 +36,25 @@ public class SelectCharacter : MonoBehaviour {
 		
 	
 	}
-	
-	//Check show only selected character
+
+    //检查并显示选定的角色
 	public void UpdateHero(int _indexHero)
 	{
 		for(int i=0; i<hero.Length;i++)
 		{
-			//Show only select character
+            //只显示选择角色
 			if(i == _indexHero)
 			{
 				heroInstance[i].SetActive(true);
 			}else
 			{
-				//Hide Other Character
+                //隐藏其他角色
 				heroInstance[i].SetActive(false);
 			}		
 		}
 	}
-	
-	//Spawn all hero
+
+    //产生所有的英雄
 	public void SpawnHero()
 	{
 		for(int i=0;i<hero.Length;i++)
